@@ -11,7 +11,6 @@ class WebViewStack extends StatefulWidget {
   State<WebViewStack> createState() => _WebViewStackState();
 }
 
-
 class _WebViewStackState extends State<WebViewStack> {
   var loadingPercentage = 0;
 
@@ -53,7 +52,8 @@ class _WebViewStackState extends State<WebViewStack> {
             }
             return NavigationDecision.navigate;
           },
-          javascriptMode: JavascriptMode.unrestricted,        // Add this line
+          javascriptMode: JavascriptMode.unrestricted,
+          javascriptChannels: _createJavascriptChannels(context),  // Add this line
         ),
         if (loadingPercentage < 100)
           LinearProgressIndicator(
@@ -62,4 +62,18 @@ class _WebViewStackState extends State<WebViewStack> {
       ],
     );
   }
+
+  // Add from here ...
+  Set<JavascriptChannel> _createJavascriptChannels(BuildContext context) {
+    return {
+      JavascriptChannel(
+        name: 'SnackBar',
+        onMessageReceived: (message) {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text(message.message)));
+        },
+      ),
+    };
+  }
+  // ... to here.
 }
