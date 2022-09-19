@@ -1,9 +1,6 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
 enum _MenuOptions {
   navigationDelegate,
+  userAgent,                                          // Add this line
 }
 
 class Menu extends StatelessWidget {
@@ -22,6 +19,15 @@ class Menu extends StatelessWidget {
               case _MenuOptions.navigationDelegate:
                 controller.data!.loadUrl('https://youtube.com');
                 break;
+              // Add from here ...
+              case _MenuOptions.userAgent:
+                final userAgent = await controller.data!
+                    .runJavascriptReturningResult('navigator.userAgent');
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(userAgent),
+                ));
+                break;
+              // ... to here.
             }
           },
           itemBuilder: (context) => [
@@ -29,6 +35,12 @@ class Menu extends StatelessWidget {
               value: _MenuOptions.navigationDelegate,
               child: Text('Navigate to YouTube'),
             ),
+            // Add from here ...
+            const PopupMenuItem<_MenuOptions>(
+              value: _MenuOptions.userAgent,
+              child: Text('Show user-agent'),
+            ),
+            // ... to here.
           ],
         );
       },
