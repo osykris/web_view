@@ -11,3 +11,6 @@
 
 ## Menambahkan tombol menu ke AppBar
 ![image](https://user-images.githubusercontent.com/64391578/191062882-4a3fa34c-62af-4a9f-a1d3-c15e2f4fe16e.png)
+
+## Mengevaluasi JavaScript
+![image](https://user-images.githubusercontent.com/64391578/191065882-04acb842-879d-4e2b-8740-cb66450f385a.png)
