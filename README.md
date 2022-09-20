@@ -14,3 +14,6 @@
 
 ## Mengevaluasi JavaScript
 ![image](https://user-images.githubusercontent.com/64391578/191065882-04acb842-879d-4e2b-8740-cb66450f385a.png)
+
+## Mengelola Cookie
+![Screenshot 2022-09-20 091312](https://user-images.githubusercontent.com/64391578/191152958-e86292d9-bae3-4790-877c-10c61ac81fab.png)
